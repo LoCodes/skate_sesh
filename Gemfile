@@ -12,4 +12,5 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
-gem 'rack-flash3', require: 'rack-flash'
+gem 'sinatra-flash'
+
