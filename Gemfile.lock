@@ -29,6 +29,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     rack (2.2.3)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.1.0)
       rack
     rack-test (0.6.3)
@@ -76,6 +78,7 @@ DEPENDENCIES
   activerecord (~> 5.2)
   bcrypt
   pry
+  rack-flash3
   rake
   require_all
   shotgun
