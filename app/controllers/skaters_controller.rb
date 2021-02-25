@@ -23,5 +23,22 @@ class SkatersController < ApplicationController
         erb :"skaters/login"
     end 
 
+    post '/login' do 
+        skater = Skater.find_by_username(params[:username])
+        # binding.pry
+        # if author exists && password is correct
+        if skater && skater.authenticate(params[:password])
+            # login user
+            session[:skater_id] = skater.id
+            # redirect 
+            redirect '/posts'
+        else 
+            # flash[]
+            # flash[:error] = "Invalid login"
+            # invalid login
+            redirect '/login'
+        end 
+    end 
+
 
 end 
