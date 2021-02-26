@@ -27,7 +27,7 @@ class SkatersController < ApplicationController
     post '/login' do 
         skater = Skater.find_by_username(params[:username])
         # binding.pry
-        # if author exists && password is correct
+        # if user exists && password is correct
         if skater && skater.authenticate(params[:password])
             # login user
             session[:skater_id] = skater.id
