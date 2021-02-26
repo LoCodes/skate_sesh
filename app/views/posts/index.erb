@@ -1,0 +1,11 @@
+<h1>Feed Page:</h1>
+
+
+
+<% @posts.each do |p| %>
+    <p><%= p.trick_to_learn %> - <%= p.id %> 
+        <% if current_user == p.skater %>
+            <a href="/posts/<%= p.id %>/edit">Edit</a> 
+        <% end %>
+    </p>
+<% end %>

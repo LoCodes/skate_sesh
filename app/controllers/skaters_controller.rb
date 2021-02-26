@@ -34,7 +34,7 @@ class SkatersController < ApplicationController
             redirect '/posts'
         else 
             # flash[]
-            flash[:error] = "Invalid login"
+            #flash[:error] = "Invalid login"
             # invalid login
             redirect '/login'
         end 
