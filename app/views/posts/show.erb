@@ -1,0 +1,10 @@
+Trick: <%= @post.trick_to_learn %><br>
+Description: <%= @post.description %><br>
+Accomplished: (add checkboxes later)<br>
+
+<a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+
+<form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Post">
+</form>
