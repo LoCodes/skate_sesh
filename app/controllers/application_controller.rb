@@ -16,15 +16,23 @@ class ApplicationController < Sinatra::Base
 
   helpers do # makes these methods availble to controller and views
 
-    # return the logged in user
-   def current_user # return logged in user 
-    @current_user ||= Skater.find_by_id(session[:skater_id]) #memoization
-   end 
+    def current_user 
+      @current_user ||= Skater.find_by_id(session[:skater_id])
+    end 
 
-    # check if a user logged in
-    def logged_in?
+    def logged_in? 
       !!session[:skater_id]
     end 
+
+    # return the logged in user
+  #  def current_user # return logged in user 
+  #   @current_user ||= Skater.find_by_id(session[:skater_id]) #memoization
+  #  end 
+
+  #   # check if a user logged in
+  #   def logged_in?
+  #     !!session[:skater_id]
+  #   end 
 
   end 
 
