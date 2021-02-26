@@ -15,7 +15,12 @@
   </head>
   <body>
     <div class="wrapper">
-
+        
+        <% flash.keys.each do |type| %>
+            <div class="flash warning">
+                <%= flash[type] %>
+            </div>
+        <% end %>        
         <%= yield %>
 
       <footer class="branding">

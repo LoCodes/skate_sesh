@@ -1,13 +1,16 @@
 <h1>Feed Page:</h1>
 
-<a href="/posts/new"> New Post </a>
+<a href="/posts/new"> New Post </a><br>
+<%# <a href="/posts "> My Posts </a><br> %>
 
 
 <% @posts.each do |p| %>
-    <p><%= p.trick_to_learn %> - <%= p.id %> - <%= p.description %>
-        <% if current_user == p.skater %>
-            <a href="/posts/<%= p.id %>/edit">Edit</a> 
-        <% end %>
+    <p><%= p.trick_to_learn %> - <%= p.id %> - <%= p.description %><br>
+    <% if logged_in? %>
+    <a href="/posts/<%= p.id %>/edit">Edit</a> 
+    <% end %>
+
+        
     </p>
 <% end %>
 

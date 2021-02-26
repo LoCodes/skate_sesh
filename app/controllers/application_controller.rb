@@ -2,6 +2,9 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
+
+
+
   configure do
     set :views, 'app/views'
     enable :sessions
@@ -9,6 +12,9 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
 
   end
+
+  # add_flash_types :info, :success, :warning, :danger 
+
 
   get "/" do
     erb :welcome

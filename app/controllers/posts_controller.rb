@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
     get '/posts/:id' do 
         #get_post
-        @post = Post.find(params[:id])
+        @post = Post.find_by(id:params[:id])
         erb :'posts/show'
          # # retrieve the requested post 
          # @post = Post.find(params[:id])
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
     get '/posts/:id/edit' do 
         #if logged in 
-        @post = Post.find(params[:id])
+        @post = Post.find_by(id: params[:id])
         # redirect_if_not_authorized
         erb :"/posts/edit"
         # retreive the object
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
     patch '/posts/:id' do 
         # get_post
-        @post = Post.find(params[:id])
+        @post = Post.find_by(id:params[:id])
 
         #if logged in 
         # redirect_if_not_authorized
@@ -60,13 +60,14 @@ class PostsController < ApplicationController
     # user wants to delete an existing post 
     delete '/posts/:id' do 
         #get_post
-        @post = Post.find(params[:id])
+        @post = Post.find_by(id:params[:id])
 
 
         @post.destroy
         redirect '/posts'
         # no view 
     end 
+    
 
 
 end  
