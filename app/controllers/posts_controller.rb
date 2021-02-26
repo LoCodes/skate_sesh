@@ -35,12 +35,37 @@ class PostsController < ApplicationController
     end 
 
     get '/posts/:id/edit' do 
+        #if logged in 
         @post = Post.find(params[:id])
         # redirect_if_not_authorized
         erb :"/posts/edit"
         # retreive the object
         # autofill a form with the details of that object
         # render to our user to fill out 
+    end 
+
+    patch '/posts/:id' do 
+        # get_post
+        @post = Post.find(params[:id])
+
+        #if logged in 
+        # redirect_if_not_authorized
+        @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description])
+        redirect "/posts/#{@post.id}" 
+        # @post.update
+        # no view 
+        # update the particular object with new attributes
+    end 
+
+    # user wants to delete an existing post 
+    delete '/posts/:id' do 
+        #get_post
+        @post = Post.find(params[:id])
+
+
+        @post.destroy
+        redirect '/posts'
+        # no view 
     end 
 
 
