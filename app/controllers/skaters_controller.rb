@@ -10,6 +10,7 @@ class SkatersController < ApplicationController
         # validate our author object
         # if author.username != ""
         if skater.username.blank? || skater.password.blank? || Skater.find_by_username(params[:username])
+            flash[:warning] = "Invalid, try again."
             redirect '/signup'
         else 
             skater.save
@@ -34,7 +35,7 @@ class SkatersController < ApplicationController
             redirect '/posts'
         else 
             # flash[]
-            flash[:warning] = "Invalid login!!"
+            flash[:warning] = "Invalid login, please try again."
             # invalid login
             redirect '/login'
         end 
