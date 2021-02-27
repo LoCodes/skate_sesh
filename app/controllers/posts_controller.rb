@@ -9,9 +9,7 @@ class PostsController < ApplicationController
         end 
     end 
 
-    # get '/posts/new' do 
-    #     erb :'posts/new'
-    # end 
+
 
     get '/posts/new' do
         if logged_in?
@@ -23,10 +21,8 @@ class PostsController < ApplicationController
 
     post '/posts' do 
         @post = Post.new(params)
-        # @post.skater_id = session[:post_id]
         @post.skater_id = session[:skater_id]
         
-        # @skater.posts << @post
 
         @post.save 
         redirect "/posts/#{@post.id}" 
@@ -44,20 +40,15 @@ class PostsController < ApplicationController
         if @post.skater == current_user
             erb :"/posts/edit"
         else 
-            
-            redirect '/posts'
             flash[:error] = "You may not edit other skaters' post :)"
+            redirect '/posts'
         end
  
     end 
 
     patch '/posts/:id' do 
         @post = Post.find_by(id:params[:id])
-        # binding.pry
 
-        # if logged in ?? 
-        # redirect_if_not_authorized
-        # if current_user == @post.skater 
         @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description])
         redirect "/posts/#{@post.id}" 
   
@@ -80,14 +71,12 @@ private
         @post = Post.find_by(id:params[:id])
     end 
 
-    # def redirect_if_not_authorized
-    #     if @post.skater != current_user
-    #         binding.pry
-    #         flash[:error] = "You may not edit other skaters' post :)"
-    #         redirect '/posts'
-    #     end 
-
-    # end     
+    def redirect_if_not_authorized
+        if @post.skater != current_user
+            flash[:error] = "You may not edit other skaters' post :)"
+            redirect '/posts'
+        end 
+    end     
     
 
 

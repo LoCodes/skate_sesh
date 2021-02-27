@@ -1,6 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  # add_flash_types :info, :error, :warning
 
 
 
@@ -16,7 +17,7 @@ class ApplicationController < Sinatra::Base
   # add_flash_types :info, :success, :warning, :danger 
 
 
-  get "/" do
+  get "/welcome" do
     erb :welcome
   end
 
@@ -24,7 +25,7 @@ class ApplicationController < Sinatra::Base
 
     #return the logged in user
     def current_user 
-      @current_user ||= Skater.find_by_id(session[:skater_id]) #memoization
+      @current_user ||= Skater.find_by_id(session[:skater_id]) if logged_in? #memoization
     end 
 
 

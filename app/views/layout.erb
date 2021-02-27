@@ -14,18 +14,28 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <div class="topnav" id="myTopnav">
+     <a href="/welcome" class="active">Home</a>
+     <% if current_user %> <a href="#news">News</a>
+     <a href="#contact">Contact</a>
+     <a href="#about">About</a>
+     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+     </a>
+    </div>
 
   
     <div class="wrapper">
-
     
         
         <% flash.keys.each do |type| %>
-            <div class="flash warning">
-                <%= flash[type] %>
-            </div>
-        <% end %>        
+          <div data-alert class="flash <%= type %> alert-box radius">
+            <%= flash[type] %>
+          </div>
+        <% end %> 
+
         <%= yield %>
 
       <footer class="branding">
