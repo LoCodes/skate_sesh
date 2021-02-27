@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_043148) do
     t.datetime "updated_at", null: false
     t.integer "skater_id"
     t.string "link"
+    t.string "accomplished"
   end
 
   create_table "skaters", force: :cascade do |t|

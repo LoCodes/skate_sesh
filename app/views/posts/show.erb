@@ -1,6 +1,6 @@
 Trick: <%= @post.trick_to_learn %><br>
 Description: <%= @post.description %><br>
-Accomplished: (add checkboxes later)<br>
+Accomplished: <%= @post.accomplished %> <br>
 <% if !@post.link.blank? %>
 <% binding.pry %>
     Link: <a href="www.google.com"></a> 
