@@ -2,6 +2,13 @@
 <form action="/posts" method="post">
     Trick To Learn: <input type="text" name="trick_to_learn">
     Description: <textarea name="description"></textarea>
-    Link: <input type="text" name="link" >
+    Link: <input type="text" name="link" ><br>
+    Accomplished:<>
+    <% Posts.all.each do |post| %>
+      <input type="radio" name="post[skater_id]" id="<%= post.id %>" value="<%= post.id %>"> Accomplished <br>
+    <% end %>
+
+    <input type="checkbox" id="not_yet" name="not_yet" value="not_yet">
+    <label for="accomplished">not_yet!</label><br>
     <input type="submit" value="Create Post">
 </form>

@@ -28,9 +28,7 @@ class PostsController < ApplicationController
         
         # @skater.posts << @post
 
-        # @post = current_user.tweets.build(content: params[:content])
         @post.save 
-        # binding.pry
         redirect "/posts/#{@post.id}" 
     end 
 
@@ -48,7 +46,7 @@ class PostsController < ApplicationController
         else 
             
             redirect '/posts'
-            flash[:error]
+            flash[:error] = "You may not edit other skaters' post :)"
         end
  
     end 

@@ -6,7 +6,7 @@
 
 <% @posts.each do |p| %>
     <p><%= p.trick_to_learn %> - <%= p.id %> - <%= p.description %><br>
-    <% if current_user %>
+    <% if logged_in? %>
     <a href="/posts/<%= p.id %>/edit">Edit</a> 
     <% end %>
 
