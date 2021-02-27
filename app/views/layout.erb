@@ -18,9 +18,13 @@
 
     <div class="topnav" id="myTopnav">
      <a href="/welcome" class="active">Home</a>
-     <% if current_user %> <a href="#news">News</a>
-     <a href="#contact">Contact</a>
-     <a href="#about">About</a>
+     <a href="/posts">Feed Page</a>
+     <% if logged_in? %><a href="/mypage">My Page</a><%end%>
+     <% if !logged_in? %> 
+      <a href="/login">Log In</a>
+      <% else %>
+      <a href="/logout">Log Out</a>
+      <%end%>
      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
      </a>
