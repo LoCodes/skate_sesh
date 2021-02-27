@@ -15,7 +15,7 @@ class SkatersController < ApplicationController
         else 
             skater.save
             session[:skater_id] = skater.id # logging user in
-           redirect '/posts'
+            redirect '/posts'
         end 
     end
 
@@ -34,7 +34,6 @@ class SkatersController < ApplicationController
             # redirect 
             redirect '/posts'
         else 
-            # flash[]
             flash[:warning] = "Invalid login, please try again."
             # invalid login
             redirect '/login'

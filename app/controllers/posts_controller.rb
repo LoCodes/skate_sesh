@@ -23,50 +23,52 @@ class PostsController < ApplicationController
 
     post '/posts' do 
         @post = Post.new(params)
-        @post.skater_id = session[:post_id]
+        # @post.skater_id = session[:post_id]
+        @post.skater_id = session[:skater_id]
+        
+        # @skater.posts << @post
+
+        # @post = current_user.tweets.build(content: params[:content])
         @post.save 
+        # binding.pry
         redirect "/posts/#{@post.id}" 
     end 
 
     get '/posts/:id' do 
         get_post
-        # @post = Post.find_by(id:params[:id])
         erb :'posts/show'
-         # # retrieve the requested post 
-         # @post = Post.find(params[:id])
-         # # show details of that post         
-         # erb :'posts/show'
     end 
 
     get '/posts/:id/edit' do 
         #if logged in 
         get_post
         # @post = Post.find_by(id: params[:id])
-        redirect_if_not_authorized
-        erb :"/posts/edit"
-        # retreive the object
-        # autofill a form with the details of that object
-        # render to our user to fill out 
+        if @post.skater == current_user
+            erb :"/posts/edit"
+        else 
+            
+            redirect '/posts'
+            flash[:error]
+        end
+ 
     end 
 
     patch '/posts/:id' do 
-        get_post
-        # @post = Post.find_by(id:params[:id])
+        @post = Post.find_by(id:params[:id])
+        # binding.pry
 
-        #if logged in 
-        redirect_if_not_authorized
+        # if logged in ?? 
+        # redirect_if_not_authorized
+        # if current_user == @post.skater 
         @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description])
         redirect "/posts/#{@post.id}" 
-        # @post.update
-        # no view 
-        # update the particular object with new attributes
+  
     end 
 
     # user wants to delete an existing post 
     delete '/posts/:id' do 
         get_post
         # @post = Post.find_by(id:params[:id])
-
 
         @post.destroy
         redirect '/posts'
@@ -80,13 +82,14 @@ private
         @post = Post.find_by(id:params[:id])
     end 
 
-    def redirect_if_not_authorized
-        if @post.skater != current_user
-            flash[:error] = "You may not edit other skaters' post :)"
-            redirect '/posts'
-        end 
+    # def redirect_if_not_authorized
+    #     if @post.skater != current_user
+    #         binding.pry
+    #         flash[:error] = "You may not edit other skaters' post :)"
+    #         redirect '/posts'
+    #     end 
 
-    end     
+    # end     
     
 
 
