@@ -3,8 +3,14 @@ Edit Post:
 
 <form action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    Trick: <input type="text" name="trick_to_learn" value="<%= @post.trick_to_learn %>">
-    Description: <textarea name="description"><%= @post.description %></textarea>
+    Trick: <input type="text" name="trick_to_learn" value="<%= @post.trick_to_learn %>"><br>
+    Description: <textarea name="description"><%= @post.description %></textarea><br>
     Accomplished: (add checkboxes)
     <input type="submit" value="Edit Post">
+
+</form>
+
+<form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Post">
 </form>
