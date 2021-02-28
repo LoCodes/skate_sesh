@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     get '/posts' do 
         if logged_in?
             @posts = Post.all
+            @skaters = Skater.all
             erb :'posts/index'
         else 
             erb :welcome
