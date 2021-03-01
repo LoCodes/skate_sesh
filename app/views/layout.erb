@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="topnav" id="myTopnav">
+    <% if logged_in? %>
      <a href="/welcome" class="active">Home</a>
      <a href="/posts">Feed Page</a>
      <% if logged_in? %><a href="/mypage">My Page</a><%end%>
@@ -28,6 +29,7 @@
      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
      </a>
+    <% end %>
     </div>
 
   

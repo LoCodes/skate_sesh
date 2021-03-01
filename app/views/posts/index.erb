@@ -1,4 +1,6 @@
-<h1>Feed Page:</h1>
+<h1>Feed Page: </h1>
+<h2> Welcome, <%= current_user.username %> </h2>
+
 
 <h2><a href="/posts/new"> New Post </a><br></h2>
 <%# <a href="/myposts "> My Posts </a><br> %>
@@ -6,13 +8,17 @@
 
 <% @posts.zip(@skaters).each do |p, s| %>
 
-    <p> <%= s.username %> - <%= p.skater_id %> - <%= p.trick_to_learn %> - <%= p.id %> - <%= p.description %><br>
+    <p> <%= s.username %> - 
+    Location: <%= s.location %> - <%= p.skater_id %><br>
+    Trick to Learn: <%= p.trick_to_learn %> - <%= p.id %><br>
+    Description: <%= p.description %><br>
+    <% if !p.link.blank? %> Link: <img src= "<%= p.link %>" height ="250" width="250"><br> <% end %>
+
     
     <% if logged_in? %>
     <a href="/posts/<%= p.id %>/edit">Edit</a> 
     <% end %>
 
-        
     </p>
 <% end %>
 

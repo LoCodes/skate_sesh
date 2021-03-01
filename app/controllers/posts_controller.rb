@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
 
     get '/posts' do 
+        
         if logged_in?
             @posts = Post.all
-            @skaters = Skater.all
+            #@skater = Skater.find_by_username(params[:username]) try this instead?!
+            @skaters = Skater.all   #delete later works with .zip in index. 
             erb :'posts/index'
         else 
             erb :welcome
@@ -44,7 +46,6 @@ class PostsController < ApplicationController
             flash[:error] = "You may not edit other skaters' post :)"
             redirect '/posts'
         end
- 
     end 
 
     patch '/posts/:id' do 
@@ -52,7 +53,17 @@ class PostsController < ApplicationController
 
         @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description])
         redirect "/posts/#{@post.id}" 
-  
+    end 
+
+
+    #NOT DONE
+    get '/mypage' do 
+        if current_user
+            @posts = Post.all
+            
+            erb :"/posts/mypage"
+        end 
+
     end 
 
     # user wants to delete an existing post 
@@ -74,8 +85,9 @@ private
 
     def redirect_if_not_authorized
         if @post.skater != current_user
-            flash[:error] = "You may not edit other skaters' post :)"
+            flash[:error] = " "
             redirect '/posts'
+
         end 
     end     
     

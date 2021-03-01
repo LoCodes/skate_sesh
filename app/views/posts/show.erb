@@ -1,10 +1,7 @@
-Trick: <%= @post.trick_to_learn %><br>
-Description: <%= @post.description %><br>
-Accomplished: <%= @post.accomplished %> <br>
-<% if !@post.link.blank? %>
-<% binding.pry %>
-    Link: <a href="www.google.com"></a> 
-<% end %>
+Trick: <%= @post.trick_to_learn %><br><br>
+Description: <%= @post.description %><br><br>
+Accomplished: <%= @post.accomplished %> <br><br>
+Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a> 
 
 <br><a href="/posts/<%= @post.id %>/edit">Edit Post</a>
 
