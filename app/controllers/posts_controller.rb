@@ -4,7 +4,7 @@ class PostsController < ApplicationController
         
         if logged_in?
             @posts = Post.all
-            #@skater = Skater.find_by_username(params[:username]) try this instead?!
+            @posts = Post.order(created_at: :desc)
             erb :'posts/index'
         else 
             erb :welcome
