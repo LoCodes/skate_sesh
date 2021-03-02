@@ -6,10 +6,9 @@
 <%# <a href="/myposts "> My Posts </a><br> %>
 
 
-<% @posts.zip(@skaters).each do |p, s| %>
-
-    <p> <%= s.username %> - 
-    Location: <%= s.location %> - <%= p.skater_id %><br>
+<% @posts.each do |p| %>
+    <p> Username: <%= p.skater.username %> </p>
+    Location: <%= p.skater_id %><br>
     Trick to Learn: <%= p.trick_to_learn %> - <%= p.id %><br>
     Description: <%= p.description %><br>
     <% if !p.link.blank? %> Link: <img src= "<%= p.link %>" height ="250" width="250"><br> <% end %>

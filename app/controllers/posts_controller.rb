@@ -5,7 +5,6 @@ class PostsController < ApplicationController
         if logged_in?
             @posts = Post.all
             #@skater = Skater.find_by_username(params[:username]) try this instead?!
-            @skaters = Skater.all   #delete later works with .zip in index. 
             erb :'posts/index'
         else 
             erb :welcome
