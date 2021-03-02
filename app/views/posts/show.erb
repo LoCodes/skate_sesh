@@ -1,9 +1,13 @@
 Trick: <%= @post.trick_to_learn %><br><br>
 Description: <%= @post.description %><br><br>
 Accomplished: <%= @post.accomplished %> <br><br>
-Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a> 
+<% if @post.link != "" %> Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a> <%end%>
 
-<br><a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+
+
+<form action="/posts/<%= @post.id %>/edit">
+    <input type="submit" value="Edit" />
+</form>
 
 <form action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
@@ -12,4 +16,4 @@ Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a>
 
 <br>
 
-<%# <a href="/posts">Back To Feed</a> %>
+<a href="/posts">Back To Feed</a>
