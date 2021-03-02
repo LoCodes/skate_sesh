@@ -22,7 +22,7 @@
     Created: <%= p.created_at%><br>
     Updated: <%= p.updated_at%><br>
     
-    <% if logged_in? %>
+    <% if p.skater == current_user %>
     <a href="/posts/<%= p.id %>/edit">Edit</a> 
     
     <% end %>
