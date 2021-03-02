@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
   # add_flash_types :info, :success, :warning, :danger 
 
 
-  get "/welcome" do
+  get "/" do
     erb :welcome
   end
 

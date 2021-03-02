@@ -42,7 +42,7 @@ class SkatersController < ApplicationController
 
     get '/logout' do
         session.clear
-        redirect '/welcome'
+        redirect '/'
     end 
 
 
