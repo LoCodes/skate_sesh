@@ -19,6 +19,8 @@
       </p>
     </div>
 
+    <% if !logged_in? %>
+
     <div class="sidebar">
       <h3>Get Started</h3>
       <ul><br>
@@ -26,6 +28,6 @@
         <li>SignUp: <a href="/signup">Sign Up</a></li>
       </ul>
     </div>
-
+    <% end %>
   </div>
 </div>
