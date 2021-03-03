@@ -23,12 +23,16 @@ class PostsController < ApplicationController
     end
 
     post '/posts' do 
-        @post = Post.new(params)
-        @post.skater_id = session[:skater_id]
-        
-        
-        @post.save 
-        redirect "/posts/#{@post.id}" 
+
+        if params[:description] == "" || params[:trick_to_learn] == "" || params[:accomplished] == ""
+            flash[:error] = "Fill the blanks!"
+            redirect "/posts/new"
+        else 
+            @post = Post.new(params)
+            @post.skater_id = session[:skater_id]
+            @post.save
+            redirect "/posts/#{@post.id}"  
+        end 
     end 
 
     get '/posts/:id' do 
@@ -51,7 +55,7 @@ class PostsController < ApplicationController
     patch '/posts/:id' do 
         @post = Post.find_by(id:params[:id])
 
-        @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description])
+        @post.update(trick_to_learn: params[:trick_to_learn], description: params[:description], link: params[:link])
         redirect "/posts/#{@post.id}" 
     end 
 
