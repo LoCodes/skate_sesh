@@ -41,16 +41,8 @@ class PostsController < ApplicationController
     end 
 
     get '/posts/:id/edit' do 
-        #if logged in 
         get_post
         erb :"/posts/edit"
-        # @post = Post.find_by(id: params[:id])
-        # if @post.skater == current_user
-        #     erb :"/posts/edit"
-        # else 
-        #     flash[:error] = "You may not edit other skaters' post :)"
-        #     redirect '/posts'
-        # end
     end 
 
     patch '/posts/:id' do 

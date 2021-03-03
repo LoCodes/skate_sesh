@@ -42,3 +42,13 @@ Nav Bar?
  - skater profile 
  - log out 
  - add post button (as long you're signed in) ??
+
+
+
+
+ in the error msgs folder 
+ <% flash.each do |username, msg|%>
+    <div class='alert alert-<%= username %>'>
+        <%= msg%>
+    </div>
+<% end %>
