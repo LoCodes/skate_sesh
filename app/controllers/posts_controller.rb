@@ -7,7 +7,8 @@ class PostsController < ApplicationController
             @posts = Post.order(created_at: :desc)
             erb :'posts/index'
         else 
-            erb :welcome
+            flash[:error] = "Let's get you logged in or sign up first! :)"
+            redirect "/"
         end 
     end 
 
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
         @post = Post.new(params)
         @post.skater_id = session[:skater_id]
         
-
+        
         @post.save 
         redirect "/posts/#{@post.id}" 
     end 
@@ -55,7 +56,6 @@ class PostsController < ApplicationController
     end 
 
 
-    #NOT DONE
     get '/mypage' do 
         if current_user
             @posts = Post.all
@@ -81,14 +81,6 @@ private
     def get_post 
         @post = Post.find_by(id:params[:id])
     end 
-
-    def redirect_if_not_authorized
-        if @post.skater != current_user
-            flash[:error] = " "
-            redirect '/posts'
-
-        end 
-    end     
     
 
 
