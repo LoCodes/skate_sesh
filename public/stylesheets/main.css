@@ -97,7 +97,7 @@
   }
 
   .sidebar {
-    background: transparent;
+    background: transparentblue;
     border: none;
     border-top: 2px solid #ccc;
     padding: 0;
@@ -113,3 +113,4 @@
     line-height: 24px;
   }
 }
+
