@@ -3,7 +3,7 @@
 
 <form action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    Trick: <input type="text" name="trick_to_learn" value="<%= @post.trick_to_learn %>"><br>
+    Trick: <input type="text" name="trick_to_learn" value="<%= @post.trick_to_learn %> "><br>
     Description: <textarea name="description"><%= @post.description %></textarea><br>
     Accomplished: <input type="text" name="accomplished" value="<%= @post.accomplished%>"><br>
     Link: <input type="text" name="link" value=" <%= @post.link %> "><br>

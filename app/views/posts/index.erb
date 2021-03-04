@@ -11,16 +11,15 @@
 </h2>
 
 <% @posts.each do |p| %>
-    <h3>Skater: <%= p.skater.username %> </h3>
+    <h3><%= p.skater.username %> </h3>
  
 
-    Post Id: <%= p.id %><br>
-    Location: <%= p.skater_id %><br>
-    Trick to Learn: <%= p.trick_to_learn %> <br>
-    Description: <pre><%= p.description %></pre><br>
+    Location: <pre> <%= p.skater.location %></pre> <br>
+    Trick to Learn: <pre> <%= p.trick_to_learn %></pre> <br>
+    Description: <pre> <%= p.description %></pre><br>
     <% if !p.link.blank? %> <img src= "<%= p.link %>" class="rounded-corners" height ="250" width="250"><br> <% end %>
-    Created: <%= p.created_at%><br>
-    Updated: <%= p.updated_at%><br>
+    Created: <pre> <%= p.created_at%></pre> <br>
+    Updated:<pre> <%= p.updated_at%></pre> <br>
     
     <% if p.skater == current_user %>
     <a href="/posts/<%= p.id %>/edit">Edit</a> 

@@ -58,7 +58,9 @@
   }
 
   pre {
-    white-space: pre;
+    white-space: normal;
+    /* white-space: pre; */
+
   }
 
   .main {
