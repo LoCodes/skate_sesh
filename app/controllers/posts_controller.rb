@@ -59,7 +59,6 @@ class PostsController < ApplicationController
 
 
 
-
     get '/mypage' do 
         if current_user
             @posts = Post.all
@@ -69,14 +68,11 @@ class PostsController < ApplicationController
 
     end 
 
-    # user wants to delete an existing post 
     delete '/posts/:id' do 
         get_post
-        # @post = Post.find_by(id:params[:id])
 
         @post.destroy
         redirect '/posts'
-        # no view 
     end 
 
 
@@ -86,6 +82,5 @@ private
         @post = Post.find_by(id:params[:id])
     end 
     
-
 
 end  
