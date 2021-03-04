@@ -1,7 +1,7 @@
 Trick: <%= @post.trick_to_learn %><br><br>
 Description: <%= @post.description %><br><br>
 Accomplished: <%= @post.accomplished %> <br><br>
-<% if @post.link != "" %> Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a> <%end%>
+<% if !@post.link.empty? %> Link: <img src= "<%= @post.link %>" height ="250" width="250"> </a> <%end%>
 
 
 

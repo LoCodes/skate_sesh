@@ -22,6 +22,8 @@
 
 
 
+
+
   .wrapper {
     
     background: rgb(61, 153, 156);
@@ -53,6 +55,10 @@
 
   p {
     margin-bottom: 18px;
+  }
+
+  pre {
+    white-space: pre;
   }
 
   .main {
