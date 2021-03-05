@@ -1,16 +1,19 @@
 
-##Skate Sesh
+##Skate Sesh## 
+
 Welcome to the Skate Sesh web application! This is a demo app created using Sinatra and ActiveRecord. Skate Sesh is an app for roller skaters(for now) to be able to post ones skate progression. In my personal experience I have a hard time focusing on one trick at a time, and find myself trying multiple tricks in one session rather than focusing on one and fully accomplishing and learning the trick. This app will help skaters track their progress, and be able to log what was learned during that skate session. 
 
 
-##Installation
+##Installation##
+
 This project was created as part of the Flatiron School's program. To see it in action:
 
-```git clone git@github.com:LoCodes/skate_sesh.git
-```cd skate_sesh
-```bundle install 
+```
+git clone git@github.com:LoCodes/skate_sesh.git
+cd skate_sesh
+bundle install 
+shotgun
 
-run ```shotgun
 open your browser and enter the given local url provided by the shotgun server
 
 
