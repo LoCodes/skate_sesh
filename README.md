@@ -30,9 +30,9 @@ If you'd like to contribute, please fork the repository and use a feature branch
 
 ## Links
 
-Project homepage: https://github.com/LoCodes/skate_sesh
-Repository SSH: git@github.com:LoCodes/skate_sesh.git 
-Issue tracker: https://github.com/LoCodes/skate_sesh/issues
+- Project homepage: https://github.com/LoCodes/skate_sesh
+- Repository SSH: git@github.com:LoCodes/skate_sesh.git 
+- Issue tracker: https://github.com/LoCodes/skate_sesh/issues
 
 
 ## Licensing 
