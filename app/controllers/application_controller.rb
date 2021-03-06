@@ -3,9 +3,6 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
   # add_flash_types :info, :error, :warning
 
-
-
-
   configure do
     set :views, 'app/views'
     enable :sessions

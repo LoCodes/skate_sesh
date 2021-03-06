@@ -62,10 +62,9 @@ class PostsController < ApplicationController
     get '/mypage' do 
         if current_user
             @posts = Post.all
-            
+            @posts = Post.order(created_at: :desc)
             erb :"/posts/mypage"
         end 
-
     end 
 
     delete '/posts/:id' do 
