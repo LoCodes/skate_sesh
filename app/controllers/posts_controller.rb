@@ -42,7 +42,13 @@ class PostsController < ApplicationController
 
     get '/posts/:id/edit' do 
         get_post
-        erb :"/posts/edit"
+        if @post.skater == current_user
+            erb :"/posts/edit"
+        else 
+            flash[:error] = "You may not edit other skaters' post :)"
+            redirect '/posts'
+        end
+
     end 
 
     patch '/posts/:id' do 
