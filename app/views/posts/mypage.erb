@@ -6,6 +6,8 @@
     <% if p.skater == current_user %>
         Trick: <pre> <%= p.trick_to_learn %></pre><br>
         Description: <pre> <%= p.description %></pre><br>
+        Accomplished: <pre> <%= p.accomplished %> </pre>
+
     <% if !p.link.blank? %> Link: <img src= "<%= p.link %>" class="rounded-corners" height ="250" width="250"><br> <% end %>
         Created: <pre> <%= p.created_at%></pre><br>
         Updated: <pre> <%= p.updated_at%></pre><br>
