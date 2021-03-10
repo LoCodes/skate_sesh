@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
     post '/posts' do 
 
-        if params[:description] == "" || params[:trick_to_learn] == "" || params[:accomplished] == ""
+        if params[:description].blank? || params[:trick_to_learn].blank? || params[:accomplished].blank?
             flash[:error] = "Fill the blanks!"
             redirect "/posts/new"
         else 
